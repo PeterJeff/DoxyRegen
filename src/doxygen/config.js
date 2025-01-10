@@ -16,7 +16,7 @@ function findDoxygenInPath() {
 }
 
 function getDoxygenConfig() {
-    const config = vscode.workspace.getConfiguration('doxyRefresh');
+    const config = vscode.workspace.getConfiguration('DoxyRegen');
     const doxygenPath = config.get('doxygenPath');
     const doxyfilePath = resolveToAbsolutePath(config.get('doxyfilePath'));
     const outputDirectory = config.get('outputDirectory');
@@ -35,7 +35,7 @@ function getDoxygenConfig() {
                 watchPatterns
             };
         } else {
-            vscode.window.showErrorMessage('Doxygen not found in PATH. Please install Doxygen or configure doxyRefresh.doxygenPath.');
+            vscode.window.showErrorMessage('Doxygen not found in PATH. Please install Doxygen or configure DoxyRegen.doxygenPath.');
             return {
                 doxygenPath: 'doxygen', // Set a default that will fail with a clear error if doxygen isn't available
                 doxyfilePath,
@@ -56,7 +56,7 @@ function getDoxygenConfig() {
 // Separate function to handle configuration updates
 async function updateDoxygenPathDescription(pathDoxygen) {
     try {
-        const configSection = vscode.workspace.getConfiguration('doxyRefresh');
+        const configSection = vscode.workspace.getConfiguration('DoxyRegen');
         const configTarget = vscode.ConfigurationTarget.Global;
         
         const configUpdate = {
@@ -65,7 +65,7 @@ async function updateDoxygenPathDescription(pathDoxygen) {
         };
         
         await vscode.workspace.getConfiguration().update(
-            'doxyRefresh.doxygenPath',
+            'DoxyRegen.doxygenPath',
             configSection.get('doxygenPath'),
             configTarget,
             configUpdate

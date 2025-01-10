@@ -15,7 +15,7 @@ async function runDoxygen(filePath) {
     const config = getDoxygenConfig();
     
     if (!config.doxyfilePath) {
-        vscode.window.showErrorMessage('Doxyfile path not configured. Please set doxyRefresh.doxyfilePath in settings.');
+        vscode.window.showErrorMessage('Doxyfile path not configured. Please set DoxyRegen.doxyfilePath in settings.');
         return;
     }
     

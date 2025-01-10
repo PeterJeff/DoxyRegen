@@ -9,7 +9,7 @@ let fileWatcher;
 
 function activate(context) {
     // Initialize output channel
-    outputChannel = vscode.window.createOutputChannel("DoxyRefresh");
+    outputChannel = vscode.window.createOutputChannel("DoxyRegen");
     initializeExecutor(outputChannel);
     
     // Register commands

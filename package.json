@@ -1,6 +1,6 @@
 {
   "name": "doxy-refresh",
-  "displayName": "DoxyRefresh",
+  "displayName": "DoxyRegen",
   "description": "Auto-refresh Doxygen documentation on file changes",
   "version": "0.1.0",
   "engines": {
@@ -15,19 +15,19 @@
   "main": "./extension.js",
   "contributes": {
     "configuration": {
-      "title": "DoxyRefresh",
+      "title": "DoxyRegen",
       "properties": {
-        "doxyRefresh.doxygenPath": {
+        "DoxyRegen.doxygenPath": {
           "type": "string",
           "default": "",
           "description": "Optional path to the Doxygen executable. If not set, will attempt to use doxygen from PATH"
         },
-        "doxyRefresh.doxyfilePath": {
+        "DoxyRegen.doxyfilePath": {
           "type": "string",
           "default": "",
           "description": "Path to the Doxyfile configuration file"
         },
-        "doxyRefresh.watchPatterns": {
+        "DoxyRegen.watchPatterns": {
           "type": "array",
           "items": {
             "type": "string"
@@ -35,7 +35,7 @@
           "default": ["**/*.cpp", "**/*.h"],
           "description": "Glob patterns for files to watch for changes"
         },
-        "doxyRefresh.outputDirectory": {
+        "DoxyRegen.outputDirectory": {
           "type": "string",
           "default": "",
           "description": "Optional output directory for Doxygen documentation. If not set, uses the directory specified in Doxyfile"
@@ -44,18 +44,18 @@
     },
     "commands": [
       {
-        "command": "doxyRefresh.refresh",
+        "command": "DoxyRegen.refresh",
         "title": "Refresh Doxygen Documentation"
       },
       {
-        "command": "doxyRefresh.openInPreview",
+        "command": "DoxyRegen.openInPreview",
         "title": "Open in Doxygen Preview"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "doxyRefresh.openInPreview",
+          "command": "DoxyRegen.openInPreview",
           "when": "resourceExtname == .html",
           "group": "navigation"
         }

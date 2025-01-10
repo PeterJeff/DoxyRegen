@@ -1,4 +1,4 @@
-# DoxyRefresh VSCode Extension
+# DoxyRegen VSCode Extension
 
 This extension automatically runs Doxygen when configured files change and displays the output in VSCode.
 
@@ -22,10 +22,10 @@ This extension automatically runs Doxygen when configured files change and displ
 
 This extension contributes the following settings:
 
-* `doxyRefresh.doxygenPath`: Path to the Doxygen executable
-* `doxyRefresh.doxyfilePath`: Path to the Doxyfile configuration file
-* `doxyRefresh.watchPatterns`: Array of glob patterns for files to watch for changes (defaults to `["**/*.cpp", "**/*.h"]`)
-* `doxyRefresh.outputDirectory`: Optional output directory for Doxygen documentation (if not set, uses the directory specified in Doxyfile)
+* `DoxyRegen.doxygenPath`: Path to the Doxygen executable
+* `DoxyRegen.doxyfilePath`: Path to the Doxyfile configuration file
+* `DoxyRegen.watchPatterns`: Array of glob patterns for files to watch for changes (defaults to `["**/*.cpp", "**/*.h"]`)
+* `DoxyRegen.outputDirectory`: Optional output directory for Doxygen documentation (if not set, uses the directory specified in Doxyfile)
 
 ## Usage
 
@@ -57,7 +57,7 @@ This extension contributes the following settings:
 
 ### 0.1.0
 
-Initial release of DoxyRefresh with core functionality:
+Initial release of DoxyRegen with core functionality:
 - Automated file watching system for documentation updates
 - Configurable Doxygen and Doxyfile paths with custom output directory support
 - Customizable file watch patterns
@@ -72,6 +72,7 @@ Initial release of DoxyRefresh with core functionality:
 1. Add path validation for doxygen executable and doxyfile
    - Check if files exist before attempting to run
    - Show clear error messages for missing files
+   - Current setup tries to update setting displays while using doxygen, which is odd.
 2. Improve error handling for common doxygen issues
    - Handle missing dependencies
    - Better reporting of syntax errors in doxyfile
@@ -85,6 +86,7 @@ Initial release of DoxyRefresh with core functionality:
 5. Add status bar integration
    - Show documentation generation progress
    - Quick access to output panel
-6. Find Doxygen is odd
-   - Tries to update setting displays while using doxygen.
-   - Seperation of concerns is needed
+6. Incremental Updates without losing references
+   - Doxygen itself doesn't have an incremental system, closest is Tagging
+   - Experiment with using tagging to keep doxygen partially updated with cross-page references
+
