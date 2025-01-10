@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 const { registerCommands } = require('./commands');
-const { initialize: initializeExecutor } = require('../doxygen/executor');
+const { initialize: initializeExecutor, runDoxygen } = require('../doxygen/executor');
 const { dispose: disposePanel } = require('../webview/panel');
 const { getDoxygenConfig } = require('../doxygen/config');
 

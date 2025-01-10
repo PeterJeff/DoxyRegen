@@ -20,7 +20,7 @@
         "doxyRefresh.doxygenPath": {
           "type": "string",
           "default": "",
-          "description": "Path to the Doxygen executable"
+          "description": "Optional path to the Doxygen executable. If not set, will attempt to use doxygen from PATH"
         },
         "doxyRefresh.doxyfilePath": {
           "type": "string",

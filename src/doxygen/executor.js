@@ -111,7 +111,11 @@ async function runDoxygen(filePath) {
         });
     } catch (error) {
         outputChannel.appendLine(`Error running Doxygen: ${error.message}`);
-        vscode.window.showErrorMessage('Failed to run Doxygen. Check if the path is correct.');
+        if (error.code === 'ENOENT') {
+            vscode.window.showErrorMessage('Doxygen not found. Please ensure Doxygen is installed and either in PATH or configured in settings.');
+        } else {
+            vscode.window.showErrorMessage('Failed to run Doxygen. Check if the path is correct and you have necessary permissions.');
+        }
     }
 }
 

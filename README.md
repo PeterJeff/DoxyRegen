@@ -85,3 +85,6 @@ Initial release of DoxyRefresh with core functionality:
 5. Add status bar integration
    - Show documentation generation progress
    - Quick access to output panel
+6. Find Doxygen is odd
+   - Tries to update setting displays while using doxygen.
+   - Seperation of concerns is needed
