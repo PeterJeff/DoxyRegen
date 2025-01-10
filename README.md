@@ -5,11 +5,13 @@ This extension automatically runs Doxygen when configured files change and displ
 ## Features
 
 - Automatically runs Doxygen when monitored files change
-- Configurable Doxygen executable path
+- Configurable Doxygen executable path and output directory
 - Configurable Doxyfile path
 - Configurable file watch patterns
-- Shows Doxygen output in a dedicated panel
-- Manual refresh command available
+- Shows Doxygen output in a dedicated webview
+- Integrated HTML documentation preview panel
+- Context menu integration for opening HTML files in preview
+- Manual refresh command for on-demand generation
 
 ## Requirements
 
@@ -23,6 +25,7 @@ This extension contributes the following settings:
 * `doxyRefresh.doxygenPath`: Path to the Doxygen executable
 * `doxyRefresh.doxyfilePath`: Path to the Doxyfile configuration file
 * `doxyRefresh.watchPatterns`: Array of glob patterns for files to watch for changes (defaults to `["**/*.cpp", "**/*.h"]`)
+* `doxyRefresh.outputDirectory`: Optional output directory for Doxygen documentation (if not set, uses the directory specified in Doxyfile)
 
 ## Usage
 
@@ -31,17 +34,19 @@ This extension contributes the following settings:
    - Set the path to your Doxygen executable (if not using the local copy)
    - Set the path to your Doxyfile
    - Configure which files to watch (defaults to *.cpp and *.h)
+   - Optionally set a custom output directory
 3. The extension will automatically run Doxygen when monitored files change
-4. Use the "Refresh Doxygen Documentation" command to manually trigger documentation generation
+4. Use the available commands:
+   - "Refresh Doxygen Documentation" to manually trigger documentation generation
+   - "Open in Doxygen Preview" to view HTML documentation files in the integrated preview panel
+   - Right-click HTML files to open them in the preview panel
 
 ## How It Works
 
-- The extension watches for changes in the configured file patterns
-- When a file changes, it automatically runs Doxygen using the specified configuration
-- The Doxygen output is shown in both:
-  - An output channel (for logs and error messages)
-  - A webview panel (for viewing the generated documentation)
-- If using a local Doxygen executable, it will look for it in the extension's `doxygen` directory
+- When a monitored file changes, the extension automatically runs Doxygen using your configuration
+- The output is processed in two ways:
+  - Error messages and warnings are shown in the output channel
+  - Generated HTML documentation is displayed in an integrated preview panel
 
 ## Known Issues
 
@@ -50,13 +55,16 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.1
+### 0.1.0
 
-Initial release of DoxyRefresh:
-- File watching system
-- Configurable paths and patterns
-- Output display in dedicated panel
-- Local Doxygen support for debugging
+Initial release of DoxyRefresh with core functionality:
+- Automated file watching system for documentation updates
+- Configurable Doxygen and Doxyfile paths with custom output directory support
+- Customizable file watch patterns
+- Integrated HTML documentation preview panel with context menu integration
+- Output channel for logs and error messages
+- Local Doxygen executable support for development
+- Manual refresh command for on-demand documentation generation
 
 
 
@@ -77,25 +85,3 @@ Initial release of DoxyRefresh:
 5. Add status bar integration
    - Show documentation generation progress
    - Quick access to output panel
-
-
-### Additionally:   
-
-Project Structure:
-    src/core/ - Core extension functionality
-    src/doxygen/ - Doxygen-specific logic
-    src/webview/ - Preview panel functionality
-    src/utils/ - Shared utilities
-    test/ - Test files (excluded from package)
-Code Organization:
-    Modular design with clear separation of concerns
-    Each module exports only what's needed
-    Shared utilities prevent code duplication
-Suggested Improvements:
-    Add error handling middleware in utils
-    Consider adding TypeScript for better type safety
-    Add JSDoc comments for better documentation
-    Consider adding a src/types/ directory for TypeScript/JSDoc type definitions
-    Add unit tests in tests directories
-    Add a CONTRIBUTING.md file to document the architecture
-*/
