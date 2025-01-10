@@ -1,0 +1,73 @@
+{
+  "name": "doxy-refresh",
+  "displayName": "DoxyRefresh",
+  "description": "Auto-refresh Doxygen documentation on file changes",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "DoxyRefresh",
+      "properties": {
+        "doxyRefresh.doxygenPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the Doxygen executable"
+        },
+        "doxyRefresh.doxyfilePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the Doxyfile configuration file"
+        },
+        "doxyRefresh.watchPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": ["**/*.cpp", "**/*.h"],
+          "description": "Glob patterns for files to watch for changes"
+        },
+        "doxyRefresh.outputDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Optional output directory for Doxygen documentation. If not set, uses the directory specified in Doxyfile"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "doxyRefresh.refresh",
+        "title": "Refresh Doxygen Documentation"
+      },
+      {
+        "command": "doxyRefresh.openInPreview",
+        "title": "Open in Doxygen Preview"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "doxyRefresh.openInPreview",
+          "when": "resourceExtname == .html",
+          "group": "navigation"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "doxygenOutput",
+          "name": "Doxygen Output"
+        }
+      ]
+    }
+  }
+}

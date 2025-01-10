@@ -1,0 +1,32 @@
+/*! \mainpage Drawing Shapes
+ *
+ * This project helps user to draw shapes.
+ * Currently two types of shapes can be drawn:
+ * - \subpage drawingRectanglePage "How to draw rectangle?"
+ *
+ * - \subpage drawingCirclePage "How to draw circle square?"
+ *
+ */ 
+
+/*! \page drawingRectanglePage How to draw rectangle?
+ *
+ * Lorem ipsum dolor sit amet
+ *
+ */
+
+/*! \page drawingCirclePage How to draw circle?
+ *
+ * This page is about how to draw a circle.
+ * Following sections describe circle:
+ * - \ref groupCircleDefinition "Definition of Circle"
+ * - \ref groupCircleClass "Circle Class"
+ */
+
+/*! \defgroup groupCircleDefinition Definition of Circle
+ * A circle is a shape consisting of all points in a plane that are at a given distance from a given point, the center.
+ */
+
+/*! \defgroup groupCircleClass Circle Class
+ * The Circle class provides methods to create and manipulate circle objects.
+ */
+
