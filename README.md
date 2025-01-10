@@ -2,6 +2,9 @@
 
 This extension automatically runs Doxygen when configured files change and displays the output in VSCode.
 
+Note: 98% of this code including this readme was written by Claude Sonnet 3.5 using Cline 🤖.
+https://github.com/cline/cline
+
 ## Features
 
 - Automatically runs Doxygen when monitored files change
