@@ -8,6 +8,7 @@
  *
  */ 
 
+
 /*! \page drawingRectanglePage How to draw rectangle?
  *
  * Lorem ipsum dolor sit amet
@@ -29,4 +30,5 @@
 /*! \defgroup groupCircleClass Circle Class
  * The Circle class provides methods to create and manipulate circle objects.
  */
+
 

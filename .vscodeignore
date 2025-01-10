@@ -7,3 +7,6 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 test/**
 doxygen/**
+src/**/*.test.js
+src/**/*.spec.js
+src/**/__tests__/**
